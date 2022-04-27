@@ -8,7 +8,13 @@ namespace CodeFirstEFDemo
 {
     public class EmployeeDBContext : DbContext
     {
-        public DbSet<Employee> Employee { get; set; }
-        public DbSet<Department> Department { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employee>().MapToStoredProcedures();
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
