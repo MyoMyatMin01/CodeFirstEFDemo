@@ -12,7 +12,13 @@ namespace CodeFirstEFDemo
         public List<Employee> GetEmployee()
         {
             EmployeeDBContext context = new EmployeeDBContext();
-            return context.Employees.ToList();
+            return context.Employees.Include("Department").ToList();
+        }
+
+        public List<Department> GetDepartmentID()
+        {
+            EmployeeDBContext context = new EmployeeDBContext();
+            return context.Departments.Include("Employee").ToList();
         }
 
         public void InsertEmployee(Employee employee)
