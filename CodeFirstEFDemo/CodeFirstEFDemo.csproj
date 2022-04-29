@@ -79,7 +79,7 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Department.cs" />
+    <Compile Include="EmployeeContact.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeDBContext.cs" />
     <Compile Include="EmployeeDBSeeder.cs" />

@@ -9,32 +9,20 @@ namespace CodeFirstEFDemo
     public class EmployeeDBContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Department> Departments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>().MapToStoredProcedures();
             modelBuilder.Entity<Employee>()
-                .Map(emp =>
-                {
-                    emp.Properties(p => new
-                    {
-                        p.Id,
-                        p.FirstName,
-                        p.LastName
-                    });
-                    emp.ToTable("EmployeeName");
-                })
-                .Map(emp =>
-                {
-                    emp.Properties(p => new
-                    {
-                        p.Id,
-                        p.Gender,
-                        p.Salary
-                    });
-                    emp.ToTable("EmployeeSalary");
-                });
+                .HasKey(e => e.Id)
+                .ToTable("Employees");
+
+            modelBuilder.Entity<EmployeeContact>()
+                .HasKey(e => e.Id)
+                .ToTable("Employees");
+
+            modelBuilder.Entity<Employee>()
+                .HasRequired(e => e.EmployeeContact)
+                .WithRequiredPrincipal(e => e.Employee);
 
             base.OnModelCreating(modelBuilder);
         }

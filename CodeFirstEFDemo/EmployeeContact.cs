@@ -5,11 +5,11 @@ using System.Web;
 
 namespace CodeFirstEFDemo
 {
-    public class Department
+    public class EmployeeContact
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
-        public List<Employee> Employees { get; set; }
+        public Employee Employee { get; set; }
     }
 }

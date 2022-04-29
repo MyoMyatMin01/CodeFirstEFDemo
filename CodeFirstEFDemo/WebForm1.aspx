@@ -10,11 +10,10 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CellPadding="4" DataKeyNames="Id" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                <asp:BoundField DataField="Id" ReadOnly="true" HeaderText="Id" SortExpression="Id" />
+                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                 <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                 <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                 <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender"></asp:BoundField>
@@ -37,10 +36,9 @@
                 <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                 <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
                 <asp:BoundField DataField="Salary" HeaderText="Salary" SortExpression="Salary" />
-                <asp:CommandField ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetEmployee" TypeName="CodeFirstEFDemo.EmployeeRepo" DataObjectTypeName="CodeFirstEFDemo.Employee" DeleteMethod="DeleteEmployee" InsertMethod="InsertEmployee" UpdateMethod="UpdateEmployee"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetEmployee" TypeName="CodeFirstEFDemo.EmployeeRepo"></asp:ObjectDataSource>
     </form>
 </body>
 </html>
